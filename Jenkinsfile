@@ -8,8 +8,8 @@ pipeline {
   maven 'M2_HOME'
 }
 environment {
-    registry = '076892551558.dkr.ecr.us-east-1.amazonaws.com/jenkins'
-    registryCredential = 'aws_ecr_id'
+    registry = '520394173897.dkr.ecr.us-east-1.amazonaws.com/devop_repository'
+    registryCredential = 'jenkins-ecr'
     dockerimage = ''
 }
 
@@ -23,7 +23,7 @@ environment {
             
             steps {
               withSonarQubeEnv('SonarServer') {
-                  sh 'mvn sonar:sonar -Dsonar.projectKey=kserge2001_geolocation -Dsonar.java.binaries=.'
+                  sh 'mvn sonar:sonar -Dsonar.projectKey=Luckodjo_geolocation-12 -Dsonar.java.binaries=.'
               }
             }
           }
