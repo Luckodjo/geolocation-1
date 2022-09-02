@@ -10,7 +10,7 @@ pipeline {
     
  environment {
     registry = '520394173897.dkr.ecr.us-east-1.amazonaws.com/devop_repository'
-    registryCredential = 'aws_ecr_id'
+    registryCredential = 'ecr-user'
     dockerimage = ''
   }
 
