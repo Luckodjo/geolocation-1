@@ -8,9 +8,6 @@ pipeline {
   maven 'M2_HOME'
 }
     
-                   withCredentials([string(credentialsId: 'docker-hub', variable: 'dockerhub_passwd')]) {
-                  sh "docker login -u luckodjo -p ${dockerhub_passwd}"
-                   }
 environment {
     registry = '520394173897.dkr.ecr.us-east-1.amazonaws.com/devop_repository'
     registryCredential = 'aws_ecr_id'
