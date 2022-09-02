@@ -15,32 +15,6 @@ environment {
 
     stages {
 
-        stage("build & SonarQube analysis") {
-            agent {
-                docker { image 'maven:3.8.6-openjdk-11-slim' }
-            }
-            
-            
-            steps {
-              withSonarQubeEnv('SonarQube') {
-                  sh 'mvn sonar:sonar -Dsonar.projectKey=Luckodjo_geolocation-12 -Dsonar.java.binaries=.'
-              }
-            }
-        }
-
-        stage('Check Quality Gate') {
-            steps {
-                echo 'Checking quality gate...'
-                script {
-                    timeout(time: 20, unit: 'MINUTES') {
-                        def qg = waitForQualityGate()
-                        if (qg.status != 'OK') {
-                            error "Pipeline stopped because of quality gate status: ${qg.status}"
-                        }
-                    }
-                }
-            }
-        }
         
          
         stage('maven package') {
