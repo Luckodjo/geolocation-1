@@ -9,7 +9,7 @@ pipeline {
 }
 environment {
     registry = '520394173897.dkr.ecr.us-east-1.amazonaws.com/devop_repository'
-    registryCredential = 'jenkins-ecr'
+    registryCredential = 'aws_ecr_id'
     dockerimage = ''
 }
 
