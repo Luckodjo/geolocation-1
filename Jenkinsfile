@@ -30,8 +30,8 @@ pipeline {
                  
                  withSonarQubeEnv('SonarServer') {
 
-                  sh "mvn sonar:sonar"
-                 // sh 'mvn sonar:sonar -Dsonar.projectKey=Luckodjo_geolocation-12 -Dsonar.java.binaries=.'
+               
+                 sh 'mvn sonar:sonar -Dsonar.projectKey=Luckodjo_geolocation-12 -Dsonar.java.binaries=.'
               }
             }
         }
