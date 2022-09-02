@@ -16,12 +16,14 @@ environment {
     stages {
 
         stage("build & SonarQube analysis") {
+           
             
-            withCredentials([string(credentialsId: 'docker-hub', variable: 'dockerhub_passwd')]) {
+            agent { 
+                
+                 
+                   withCredentials([string(credentialsId: 'docker-hub', variable: 'dockerhub_passwd')]) {
                   sh "docker login -u luckodjo -p ${dockerhub_passwd}"
                    }
-            
-            agent {              
                 
                 docker { image 'maven:3.8.6-openjdk-11-slim' }
             }
