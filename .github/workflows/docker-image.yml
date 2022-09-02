@@ -22,5 +22,7 @@ jobs:
         docker login -u $DOCKER_USER -p $DOCKER_PW
         
     - name: Build the Docker image
-      run: docker build 
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build ./Dockerfile -t luckodjo/myjava:1.0.0
+      
+    - name: docker push
+      run: docker push luckodjo/myjava:1.0.0
