@@ -1,29 +1,28 @@
 
 pipeline {
-    triggers {
-  pollSCM('* * * * *')
-    }
+   // ## triggers {
+  //  ##pollSCM('* * * * *')
+   // }
    agent any
     tools {
   maven 'M2_HOME'
-}
+  }
     
-environment {
+ environment {
     registry = '520394173897.dkr.ecr.us-east-1.amazonaws.com/devop_repository'
     registryCredential = 'aws_ecr_id'
     dockerimage = ''
-}
+  }
 
     stages {
 
         stage("build & SonarQube analysis") {
            
             
-            agent { 
+               agent { 
+                         
                 
-                 
-                
-                docker { image 'maven:3.8.6-openjdk-11-slim' }
+              docker { image 'maven:3.8.6-openjdk-11-slim' }
             }
             
             
