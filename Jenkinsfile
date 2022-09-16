@@ -1,20 +1,22 @@
 
 pipeline {
-    triggers {
-  pollSCM('* * * * *')
-    }
+   // ## triggers {
+  //  ##pollSCM('* * * * *')
+   // }
    agent any
     tools {
   maven 'M2_HOME'
-}
-environment {
+  }
+    
+ environment {
     registry = '520394173897.dkr.ecr.us-east-1.amazonaws.com/devop_repository'
-    registryCredential = 'aws_ecr_id'
+    registryCredential = 'ecr-user'
     dockerimage = ''
-}
+  }
 
-   
-         
+    stages {
+
+
         stage('maven package') {
             steps {
                 sh 'mvn clean'
@@ -42,7 +44,6 @@ environment {
                 }
             }
         }    
-         
-         
+                  
   }
 }
